@@ -71,7 +71,7 @@ head="""<svg
 """
 foot="""</svg>"""
 
-length = 10
+length = 4
 per=0.5
 r=5
 def circle(begin:float) -> str:
@@ -83,7 +83,7 @@ def circle(begin:float) -> str:
   </circle>
     """
 
-def generate_loading(level=100) -> str:
+def generate_loading(level=1000) -> str:
     result = head
     for i in range(level):
         result += circle(i*length/level*per)
