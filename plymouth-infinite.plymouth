@@ -1,12 +1,12 @@
 [Plymouth Theme]
 Name=Infinite
-Description=A theme designed by The Infinity's that features a infinite spinner.
+Description=A theme designed by The Infinity's that features a simple spinner.
 ModuleName=two-step
 
 [two-step]
 Font=Cantarell 12
 TitleFont=Cantarell Light 30
-ImageDir=/usr/share/plymouth/themes/plymouth-infinite/
+ImageDir=/usr/share/plymouth/themes//infinite
 DialogHorizontalAlignment=.5
 DialogVerticalAlignment=.382
 TitleHorizontalAlignment=.5
