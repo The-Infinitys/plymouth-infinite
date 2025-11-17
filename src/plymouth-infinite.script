@@ -1,0 +1,94 @@
+# A Plymouth script file (usually written in a simple Javascript-like language)
+# -----------------------------------------------------------
+# アニメーション、メッセージ、プロンプト表示などを制御するメインスクリプトです。
+# -----------------------------------------------------------
+
+# アニメーションフレーム数 (build.shで360フレーム生成されます)
+IMAGE_COUNT = 720;
+
+# フレーム間の遅延時間 (ミリ秒)
+# この値を大きくすると、アニメーションが遅くなります。
+# 50ms (20FPS) は標準的な速度です。
+ANIMATION_DELAY_MS = 30; 
+
+# 現在のフレームインデックス
+image_index = 0;
+
+# スピナー画像の設定
+fun set_spinner_image () {
+    # frame-000.png から frame-359.png までのファイル名を生成
+    frame_name = "throbber-" + string.sprintf ("%03i", image_index) + ".png";
+    plymouth.set_image (frame_name);
+}
+
+# --- コールバック関数 (タイマーで繰り返し呼び出される) ---
+fun refresh_callback () {
+    # ユーザー認証モード (パスワード入力) の場合は、アニメーションを停止し、ロック画像を表示
+    if (plymouth.get_mode () == "password") {
+        # ロック画像に設定
+        plymouth.set_image ("lock.png");
+        return;
+    }
+    
+    # スピナーの画像を更新
+    set_spinner_image ();
+    
+    # インデックスを更新し、ループさせる
+    image_index = (image_index + 1) % IMAGE_COUNT;
+    
+    # 次のフレーム表示をスケジュール
+    plymouth.set_timeout (ANIMATION_DELAY_MS, refresh_callback);
+}
+
+# --- イベントハンドラ関数 ---
+
+# 起動アニメーションの開始 (システムの起動時に最初に呼ばれる)
+fun boot_up () {
+    image_index = 0;
+    # アニメーションを開始
+    plymouth.set_timeout (ANIMATION_DELAY_MS, refresh_callback);
+}
+
+# シャットダウン、再起動、アップデートなどのイベント発生時の処理
+fun shutdown () {
+    # アニメーションを停止 (遅延を0に設定し、処理を終了)
+    plymouth.set_timeout (0, refresh_callback);
+}
+
+fun reboot () {
+    plymouth.set_timeout (0, refresh_callback);
+}
+
+fun updates () {
+    plymouth.set_timeout (0, refresh_callback);
+}
+
+fun system_upgrade () {
+    plymouth.set_timeout (0, refresh_callback);
+}
+
+fun firmware_upgrade () {
+    plymouth.set_timeout (0, refresh_callback);
+}
+
+fun system_reset () {
+    plymouth.set_timeout (0, refresh_callback);
+}
+
+# パスワード入力が必要になった場合の処理
+fun show_password_prompt (prompt) {
+    # メッセージを白色で表示
+    plymouth.set_message (prompt, 1.0, 1.0, 1.0);
+}
+
+# パスワードが間違っていた場合の処理
+fun show_wrong_password_message (prompt) {
+    plymouth.set_message (prompt, 1.0, 0.0, 0.0); # メッセージを赤色で表示
+    # 3秒後にメッセージをクリア
+    plymouth.set_timeout (3000, function () { plymouth.set_message ("", 1.0, 1.0, 1.0); }); 
+}
+
+# 通常メッセージの表示
+fun show_message (message) {
+    plymouth.set_message (message, 1.0, 1.0, 1.0);
+}

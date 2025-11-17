@@ -134,7 +134,7 @@ def generate_svg_file(frame_index: int, total_frames: int, output_dir: str):
     # SVGテンプレート - linearGradientを使用して単色をパスに適用
     svg_content = f"""\
 <svg
-    viewBox="0 0 120 60" version="1.1"
+    viewBox="0 0 120 120" version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink">
 

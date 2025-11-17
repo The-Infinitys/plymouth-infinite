@@ -14,6 +14,7 @@ set -e
 
 # --- 1. プロジェクトのルートディレクトリに移動 ---
 # スクリプトがどこから実行されても、常にプロジェクトのルートディレクトリを基準とする
+IMG_SIZE=256
 SCRIPT_DIR=$(dirname "$0")
 cd "$SCRIPT_DIR/.."
 echo "プロジェクトのルートディレクトリに移動しました: $(pwd)"
@@ -65,7 +66,7 @@ for svg_file in "$THROBBER_DIR"/*.svg; do
     filename_no_ext="${filename%.*}"
     
     # PNGに変換してbuildディレクトリに出力
-    rsvg-convert -w 128 -h 64 -o "$BUILD_DIR/$filename_no_ext.png" "$svg_file"
+    rsvg-convert -w $IMG_SIZE -h $IMG_SIZE -o "$BUILD_DIR/$filename_no_ext.png" "$svg_file"
 done
 
 echo "✅ アニメーションフレームの変換が完了しました。"
@@ -123,6 +124,7 @@ echo "📄 Plymouth設定ファイルをコピー中..."
 PLT_FILES=(
     "src/plymouth-infinite.grub"
     "src/plymouth-infinite.plymouth"
+    "src/plymouth-infinite.script"
 )
 
 for file in "${PLT_FILES[@]}"; do
