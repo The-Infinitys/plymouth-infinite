@@ -10,7 +10,7 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   viewBox="0 8 41 56"
+   viewBox="0 4 41 52"
    version="1.1"
    id="svg1212"
    inkscape:version="0.92.2 2405546, 2018-03-11"
@@ -145,7 +145,7 @@
   </defs>
   <rect
     x="1"
-    y="1"
+    y="5"
     width="338"
     height="30"
     rx="2"
