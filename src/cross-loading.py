@@ -22,7 +22,7 @@ PATH_POINTS_USED = SEGMENT_COUNT + 1 # 7点
 PATH_CYCLE_LENGTH = NUM_PATH_POINTS # パスの全ポイントを一周するのに10フレーム分の動き
 
 # パスと色の両方をアニメーション全体で6回周回させる乗数
-ANIMATION_CYCLE_MULTIPLIER = 6 
+ANIMATION_CYCLE_MULTIPLIER = 3
 
 # カラーサイクルに使用する特定の色（6色）
 # 遷移順序: F00 -> FF0 -> 0F0 -> 0FF -> 00F -> F0F -> F00
@@ -85,7 +85,7 @@ def generate_frame_data(frame_index: int, total_frames: int) -> tuple[str, str, 
     base_index = math.floor(cycle_norm) % NUM_PATH_POINTS
     
     # 補間係数 (0.0 から 1.0)
-    color_idx=math.floor(frame_index/total_frames * 6)
+    color_idx=math.floor(frame_index/total_frames * ANIMATION_CYCLE_MULTIPLIER)
     c_interp=cycle_norm / PATH_CYCLE_LENGTH - color_idx
     t_interp = cycle_norm - math.floor(cycle_norm)
 
@@ -115,8 +115,8 @@ def generate_frame_data(frame_index: int, total_frames: int) -> tuple[str, str, 
         for x, y in points[1:]:
             path_d += f" L {x:.4f},{y:.4f}"
 
-    color1=COLORS_CYCLE[color_idx%len(COLORS_CYCLE)]
-    color2=COLORS_CYCLE[(color_idx+1)%len(COLORS_CYCLE)]
+    color1=COLORS_CYCLE[(2 * color_idx)%len(COLORS_CYCLE)]
+    color2=COLORS_CYCLE[(2 * color_idx+1)%len(COLORS_CYCLE)]
     t_color=1 - abs(c_interp - 0.5) * 2        
     stroke_color1 = interpolate_color(WHITE_HEX, color1, t_color)
     stroke_color2 = interpolate_color(WHITE_HEX, color2, t_color)

@@ -146,6 +146,7 @@ passw_lbl_sprite.SetOpacity(0);
 /*
  * Animation related variables and setup */
 animation_frames = 90;
+
 animation_images = [];
 current_frame_index = 0;
 animation_sprite = Sprite();
