@@ -19,7 +19,7 @@ SCRIPT_DIR=$(dirname "$0")
 cd "$SCRIPT_DIR/.."
 echo "プロジェクトのルートディレクトリに移動しました: $(pwd)"
 
-TOTAL_FRAME=360
+TOTAL_FRAME=180
 # --- 2. buildディレクトリのクリーンアップと作成 ---
 BUILD_DIR="./build"
 echo "🧹 古いビルドディレクトリをクリーンアップ中..."
