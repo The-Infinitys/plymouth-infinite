@@ -1,0 +1,37 @@
+<svg
+  viewBox="0 0 340 48"
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+  <defs>
+    <!-- 虹色の線形グラデーションを定義 -->
+    <linearGradient id="RainbowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <!-- 左から右へ虹色を配置 -->
+      <stop offset="0%" style="stop-color: #f00" />
+      <!-- 赤 -->
+      <stop offset="20%" style="stop-color: #ff0" />
+      <!-- 黄 -->
+      <stop offset="40%" style="stop-color: #0f0" />
+      <!--
+ 緑 -->
+      <stop offset="60%" style="stop-color: #0ff" />
+      <!-- シアン -->
+      <stop offset="80%" style="stop-color: #00f" />
+      <!-- 青 -->
+      <stop offset="100%" style="stop-color: #f0f" />
+      <!-- マゼンタ -->
+    </linearGradient>
+  </defs>
+  <rect
+    x="1"
+    y="1"
+    width="338"
+    height="30"
+    rx="2"
+    ry="2"
+    fill="#000000"
+    stroke="url(#RainbowGradient)"
+    stroke-width="2"
+  />
+</svg>
