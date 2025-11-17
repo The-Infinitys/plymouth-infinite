@@ -1,0 +1,17 @@
+<svg
+    viewBox="0 0 120 60" version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <!-- 背景は透明にしてPlymouthが背景色を使用できるようにするか、単色にします -->
+    <!-- <rect x="0" y="0" width="120" height="60" fill="#0ff" /> -->
+    
+    <path
+        d="M 29.0000,10.0000 L 20.0000,10.0000 L 13.0000,24.0000 L 10.0000,30.0000 L 17.0000,44.0000 L 20.0000,50.0000 L 41.0000,50.0000 L 50.0000,50.0000 L 64.0000,22.0000 L 70.0000,10.0000 L 91.0000,10.0000 L 100.0000,10.0000 L 107.0000,24.0000"
+        fill="none"
+        stroke="#ff8eff"
+        stroke-width="8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+</svg>
