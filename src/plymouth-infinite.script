@@ -260,7 +260,7 @@ fsck_progress_fade_sprite.SetOpacity(fsck_fade_in_counter);
 
 if (fsck_fade_in_counter < 1) {
 
-fsck_fade_in_counter+= 0.025;
+fsck_fade_in_counter+= 0.0125;
 
 }
 else {
