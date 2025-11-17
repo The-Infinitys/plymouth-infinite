@@ -145,7 +145,7 @@ passw_lbl_sprite.SetOpacity(0);
 
 /*
  * Animation related variables and setup */
-animation_frames = 360;
+animation_frames = 90;
 animation_images = [];
 current_frame_index = 0;
 animation_sprite = Sprite();
@@ -260,7 +260,7 @@ fsck_progress_fade_sprite.SetOpacity(fsck_fade_in_counter);
 
 if (fsck_fade_in_counter < 1) {
 
-fsck_fade_in_counter+= 0.0125;
+fsck_fade_in_counter+= 0.025;
 
 }
 else {
