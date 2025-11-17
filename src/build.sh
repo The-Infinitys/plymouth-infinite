@@ -14,12 +14,12 @@ set -e
 
 # --- 1. プロジェクトのルートディレクトリに移動 ---
 # スクリプトがどこから実行されても、常にプロジェクトのルートディレクトリを基準とする
-IMG_SIZE=2880
+IMG_SIZE=256
 SCRIPT_DIR=$(dirname "$0")
 cd "$SCRIPT_DIR/.."
 echo "プロジェクトのルートディレクトリに移動しました: $(pwd)"
 
-TOTAL_FRAME=720
+TOTAL_FRAME=2880
 # --- 2. buildディレクトリのクリーンアップと作成 ---
 BUILD_DIR="./build"
 echo "🧹 古いビルドディレクトリをクリーンアップ中..."
