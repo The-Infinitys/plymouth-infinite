@@ -137,6 +137,8 @@ for file in "${PLT_FILES[@]}"; do
     fi
 done
 
+convert -delay 1 -loop 0 $BUILD_DIR/throbber-*.png throbber.webp 
+
 # --- 8. 完了 ---
 echo "--------------------------------------------------------"
 echo "✨ ビルドプロセスが正常に完了しました！"
